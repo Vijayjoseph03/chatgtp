@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Website</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: #0078d7;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        header {
+            height: 100vh;
+            background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        header .btn {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            background: #0078d7;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        header .btn:hover {
+            background: #0056a3;
+        }
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .about {
+            background: #f4f4f4;
+        }
+        .services {
+            background: #ffffff;
+        }
+        .service {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: inline-block;
+            width: 28%;
+        }
+        .testimonials {
+            background: #f4f4f4;
+        }
+        .testimonial {
+            margin: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            width: 30%;
+        }
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact input, .contact textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .contact button {
+            padding: 10px 20px;
+            background: #0078d7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact button:hover {
+            background: #0056a3;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #0078d7;
+            color: white;
+        }
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">MyBusiness</div>
+        <div>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+    <header>
+        <h1>Welcome to My Business</h1>
+        <p>Your success is our mission.</p>
+        <a href="#about" class="btn">Learn More</a>
+    </header>
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>We are a leading business offering top-notch services tailored to your needs.</p>
+    </section>
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service">
+            <h3>Service 1</h3>
+            <p>High-quality and reliable solutions for your business.</p>
+        </div>
+        <div class="service">
+            <h3>Service 2</h3>
+            <p>Professional and efficient consulting services.</p>
+        </div>
+        <div class="service">
+            <h3>Service 3</h3>
+            <p>Innovative strategies to enhance your success.</p>
+        </div>
+    </section>
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial">
+            <p>"This company transformed our business! Highly recommend."</p>
+            <p>- Client 1</p>
+        </div>
+        <div class="testimonial">
+            <p>"Outstanding service and amazing results."</p>
+            <p>- Client 2</p>
+        </div>
+        <div class="testimonial">
+            <p>"They truly care about their clients' success."</p>
+            <p>- Client 3</p>
+        </div>
+    </section>
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    <footer>
+        <p>© 2024 MyBusiness. All Rights Reserved. | <a href="#top">Back to Top</a></p>
+    </footer>
+    <script>
+        // Smooth Scroll
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                window.scrollTo({
+                    top: targetSection.offsetTop - 50,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Contact Form Validation
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (name && email && message) {
+                alert('Thank you for contacting us!');
+                this.reset();
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+    </script>
+</body>
+</html>
